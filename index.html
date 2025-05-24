@@ -3,16 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <title>Document Access</title>
-  <script src="unlock-time.js"></script> <!-- Loads your unlock time -->
+  <script src="unlock-time.js"></script>
   <script>
     const now = new Date();
 
     if (now >= unlockTime) {
-      window.location.href = "https://drive.google.com/file/d/14AJhDCo8mWSKktqcdN1cV5Qae-2Ot3Yf/preview"; // ← Replace with your actual Google Drive preview link
+      window.location.href = "https://drive.google.com/file/d/14AJhDCo8mWSKktqcdN1cV5Qae-2Ot3Yf/preview";
     }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("unlock-date").textContent = unlockTime.toLocaleString();
+    });
   </script>
 </head>
 <body>
-  <h2>This document will be available at 10:00 AM on May 25, 2025.</h2>
+  <h2>This document will be available at:</h2>
+  <p id="unlock-date" style="font-weight: bold;"></p>
 </body>
 </html>
